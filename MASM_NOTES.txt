@@ -1,0 +1,34 @@
+DB defining a byte
+DW definig a woord
+DD defining a double word
+
+
+BYTE PTR pointer or index register
+
+Example
+
+STORAGE 100 DUP(0)
+
+DATA1 DB 45H,35H,74H
+
+DATA2 DW 2000H,37H, 2222H --> 0037H
+
+DATA3 DD 234567ABH
+
+STORAGE DW 100 DUP(?)
+
+EXample
+
+DATA1 DB 25
+DATA2 DB 10001001b
+DATA3 DB 12h
+
+ORG 0010h
+DATA4 DB '2591'
+
+How data is initialized
+
+0000 19H
+0001 89H
+0002 12H
+0010 32H,35,39H,31H

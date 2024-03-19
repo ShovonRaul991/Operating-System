@@ -1,0 +1,12 @@
+
+
+
+How I created an image file
+
+$ nasm -f bin myboot.asm -o myboot.bin
+$ dd if=myboot.bin of=myboot.img bs=512 count=2880
+1+0 records in
+1+0 records out
+512 bytes copied, 0.000184902 s, 2.8 MB/s
+
+Here 2880 is the no. of blocks , so each block size is 512byte, Now 512*2880 = 1.44MB floppy drive

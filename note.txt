@@ -1,0 +1,11 @@
+Floopy drives are in A drives
+
+to copy data the command is COPY A:*.* C:\
+
+mkdir 
+rmdir
+
+edit ot edit a file
+
+ALt+f4 to save and exit also\\
+
