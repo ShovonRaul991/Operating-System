@@ -1,0 +1,44 @@
+In this lesson, the motivation behind providing tools (and associated system calls) for communication among processes (running on the same system) is discussed along with how to use those tools.
+
+Motivation behind interprocess communication
+We appreciate that the primary need for process abstraction is to isolate a program from other programs during execution.
+Once the Process Abstraction is in place, now it provides the programmer with a new way to model a system in terms of
+Cooperative processes (for example?) &
+Competitive processes (for example?).
+Therefore comes the need for interaction (communication) among processes in some form or other (i.e., need for breaking the Isolation barrier among processes)
+This interaction is called interprocess communication (IPC).
+
+In this lesson, the motivation behind providing tools (and associated system calls) for communication among processes (running on the same system) is discussed along with how to use those tools.
+
+Different types of Interprocess Communication from functional point of view
+Let us see what are the different types of communication that we can conceive among processes.
+
+Functionally, the communication can be of following types.
+
+Communication through common variables: That is, 2 or more processes will have common variables. Value assigned to such a common variable by a process can be read/altered  by other processes.
+One process produces  data and another consumes it.
+Processes use the same file
+Transfer of messages
+One Process sends a Signal to another process
+Synchronization of execution of one process from within another process. That is, from within a process to control which part of another process can (or cannot) execute and when.
+
+In this lesson, the motivation behind providing tools (and associated system calls) for communication among processes (running on the same system) is discussed along with how to use those tools.
+
+To implement variables common (shared) among many processes
+Normal Variables are memory locations allocated by compiler.
+Memory locations for a shared variable have to be allocated by Kernel (Operating System) and those locations have to be made a part of the process space
+That is, the operating system should implement system calls for at least the following tasks.
+
+Creation of a memory segment which will subsequently be shared by many processes.
+Attachment of such a shared memory  segment by a process  to its own space.
+Linux provides implements the following systems calls for this purpose.
+shmget(2) - allocates a shared memory segment (use "man 2 shmget" command to see the manual).
+shmat (2) - attaches the shared memory segment to the process space (use "man 2 shmgat" command to see the manual).
+shmdt(2) - dettaches the shared memory segment to the process space (use "man 2 shmdt" command to see the manual)
+shmctl(2) – controls the shared memory segment (use "man 2 shmctl" command to see the manual).
+
+
+In this lesson, the motivation behind providing tools (and associated system calls) for communication among processes (running on the same system) is discussed along with how to use those tools.
+
+Congratulations - end of lesson reached
+Well done!

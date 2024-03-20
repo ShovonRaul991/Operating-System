@@ -1,0 +1,10 @@
+Unlike the other assignments, the submission-deadline  for this assignment is midnight of coming Saturday.
+
+
+In the previous assignment you have written a C program which when executed as "./a.out executable1 executable2 ... executableN" creates N additional child processes where the 1st child process  executes the 1st executable file (given by executable1). 2nd executes the 2nd executable file (given by executable2) and so on.
+
+In this assignment write a program so that the parent process waits for completion of its  child processes and uses the status with which the child processes terminated.
+
+
+
+The parent process read 2 matrices  A (size m X n)  and B (size  n X r) and creates m*r child processes such that  each child process will compute one element of the product matrix A X B (size m*r) and communicates that element as status to the parent process. The parent process finally prints the product matrix (A X B)!

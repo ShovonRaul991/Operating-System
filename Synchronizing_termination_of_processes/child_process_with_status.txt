@@ -1,0 +1,4 @@
+In the previous assignment you have written a C program which when executed as "./a.out executable1 executable2 ... executableN" creates N additional child processes where the 1st child process  executes the 1st executable file (given by executable1). 2nd executes the 2nd executable file (given by executable2) and so on.
+
+In this assignment modify the program so that the parent process waits for completion of its N child processes and prints the status with which the child processes terminated along with the process id of the corresponding child process. Observe and report the status reported by a child process that terminates normally and one that terminates abnormally. Nnote that the 
+first (least signficant) 8 bits of the status "reported" by a terminated child process are used by the OS (kernel) to signify abnormal termination!

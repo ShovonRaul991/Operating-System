@@ -1,0 +1,5 @@
+Write a complete C program that reads 2 numbers  n1 and n2  (n1≤
+ n2) as command line arguments. That is, uses "int argc" and "char *argv[]" to read  n1 and n2 when the program is executed as "./a.out n1 n2". The program then creates n2 - n1 + 1 child processes Pn1, Pn1+1, ..., Pn2 such that Pi, n1 ≤  i ≤  n2, computes and prints the factorial of i. That is Pn1 computes and prints the factorial of n1, Pn1+1 computes and prints the factorial of n1+1, and so on!
+
+Additionally ensure that process Pi uses the value computed by Pi-1. That is, while computing i! (factorial of i) Pi uses  (i-1)! computed by Pi-1.
+Please note that your program should be well-documented and properly indented for easy reading!

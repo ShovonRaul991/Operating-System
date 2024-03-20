@@ -1,0 +1,69 @@
+Linux Thread Programming
+What is a thread?
+How is threads different with respect to processes?
+When to use separate processes and when to use separate threads?
+What is kernel level thread? What is user level thread?
+POSIX thread (pthread) libraries
+Thread Basics
+Thread operations include thread creation, termination, synchronization (joins, blocking), scheduling, data management and process interaction.
+A thread does not maintain a list of created threads, nor does it know the thread that created it.
+All threads within a process share the same address space.
+Threads in the same process share:
+Process instructions
+Most data
+open files (descriptors)
+signals and signal handlers
+current working directory
+User and group id
+Each thread has a unique:
+Thread ID
+set of registers, stack pointer
+stack for local variables, return addresses
+signal mask
+priority
+Return value: errno
+pthread functions return "0" if OK.
+Thread Creation and Termination
+Example: pthread1.c
+
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <pthread.h>
+void *print_message_function( void *ptr );
+main()
+{
+     pthread_t thread1, thread2;
+     char *message1 = "Thread 1";
+     char *message2 = "Thread 2";
+     int  iret1, iret2;
+    /* Create independent threads each of which will execute function */
+     iret1 = pthread_create( &thread1, NULL, print_message_function, (void*) message1);
+     iret2 = pthread_create( &thread2, NULL, print_message_function, (void*) message2);
+     /* Wait till threads are complete before main continues. Unless we  */
+     /* wait we run the risk of executing an exit which will terminate   */
+     /* the process and all threads before the threads have completed.   */
+    pthread_join( thread1, NULL);
+     pthread_join( thread2, NULL); 
+     printf("Thread 1 returns: %d\n",iret1);
+     printf("Thread 2 returns: %d\n",iret2);
+     exit(0);
+}
+void *print_message_function( void *ptr )
+{
+     char *message;
+     message = (char *) ptr;
+     printf("%s \n", message);
+}
+
+Compile: gcc -pthread pthread1.c
+
+
+
+
+Thread Synchronization:
+
+
+mutexes - Mutual exclusion lock: Block access to variables by other threads. This enforces exclusive access by a thread to a variable or set of variables.  Functions: pthread_mutex_lock(), pthread_mutex_unlock()
+joins - Make a thread wait till others are complete (terminated). Function: pthread_join()
+condition variables - data type pthread_cond_t. Functions: pthread_cond_init(), pthread_cond_destroy(), pthread_cond_wait(), pthread_cond_timedwait(), pthread_cond_signal(), pthread_cond_broadcast().
