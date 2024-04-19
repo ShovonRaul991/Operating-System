@@ -1,4 +1,4 @@
-CC                    := gcc
+CC                    := clang
 BIN                   := posix_demo
 
 BUILD_DIR             := ./build
